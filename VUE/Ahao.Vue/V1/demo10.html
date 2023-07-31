@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<a v-on:click="dosomething"></a>
+		<a @click="dosomething"></a>
+		<a @[event]="dosomething"></a>
+		
+		<a v-bind:href="url"></a>
+		<a :href="url"></a>
+		<a :[key]="url"></a>
+		
+	</head>
+	<body>
+				<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+				<script>
+					var date={a:1}
+					var vm =new Vue({
+						el:"#app",							
+						data:date					
+					})
+					
+					
+				</script>
+	</body>
+</html>

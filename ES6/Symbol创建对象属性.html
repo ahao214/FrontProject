@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let methods = {
+        up: Symbol(),
+        down: Symbol()
+    };
+
+    let youxi = {
+        name: '狼人杀',
+        [Symbol('say')]: function () {
+            console.log("我可以说话");
+        },
+        [Symbol('zibao')]: function () {
+            console.log('我可以自爆');
+        }
+    }
+
+    console.log(youxi);
+
+</script>
+</body>
+</html>

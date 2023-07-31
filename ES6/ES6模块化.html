@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="module">
+			// //引入m1.js 模块内容
+			// import * as msg from "./m1.js"
+
+			// //引入m2.js 模块内容
+			// import * as msg2 from "./m2.js"
+
+			// import * as msg3 from "./m3.js"
+			// console.log(msg);
+			// console.log(msg2);
+			// //console.log(msg3);
+			// msg3.default.change();
+			// console.log(msg3.default.school);
+
+			//2.解构赋值形式
+			import {
+				school,
+				teach
+			} from "./m1.js";
+			console.log(school);
+			console.log(teach);
+
+			import {
+				school as sc,
+				findJob
+			} from "./m2.js";
+			console.log(sc);
+			console.log(findJob);
+
+
+			import m3 from "./m3.js";
+			console.log(m3);
+		</script>
+	</body>
+</html>

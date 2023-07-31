@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//不能重复声明			
+			let a = 3;
+			console.log(a);
+			//const 声明常量，一旦声明，不可以修改
+			const max = 30;
+			console.log(max);
+
+			const person = {
+				name: 'xiaoma'
+			}
+
+			person.name = "xiaobao";		
+			console.log(person);
+
+			const arr = [];
+			for (let i = 0; i < 10; i++) {
+				arr[i] = function() {
+					return i;
+				}
+			}
+			console.log(arr);
+			console.log(arr[5]());
+		</script>
+	</body>
+</html>

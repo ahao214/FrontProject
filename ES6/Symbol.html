@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//原始数据类型Symbol 它表示独一无二的值
+			//最大的用途：用来定义对象的私有变量
+
+			const name = Symbol('name');
+			const name2 = Symbol('name');
+
+			console.log(name === name2);
+
+
+			let sone = Symbol('sone');
+			let sage = Symbol('sage');
+			console.log(sone);
+			let obj = {
+				[sage]:  '12'
+			};
+			obj[sone] = 'ahao';
+			//如果用Symbol定义的对象中的变量，取值时一定要用[变量名]
+			console.log(obj[sone]);
+			console.log(obj[sage]);
+		</script>
+	</body>
+</html>

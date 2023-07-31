@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="item in items">
+					{{item.name}}
+				</li>
+			</ul>
+			<button @click="change">改变</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+		<script>
+	
+			var app = new Vue({
+				name: "app",
+				el: "#app",
+				data: {
+					items: [{
+						name: "小明"
+					}, {
+						name: "小王"
+					}]
+				},
+				methods:{
+					change(){
+						Vue.set(this.items,0,{name:"夏利"})
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

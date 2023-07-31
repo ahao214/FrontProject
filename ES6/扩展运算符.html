@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			const tfboys = ['a', 'b', 'c'];
+
+			function chuwan() {
+				console.log(arguments);
+			}
+			chuwan(...tfboys);
+
+	console.log('---------------');
+
+			//数组的合并
+			const kuaizi = ['往塔里', '小样'];
+			const fenghuang = ['cengyi', 'linghua'];
+			const zuihao = [...kuaizi, ...fenghuang];
+			console.log(zuihao);
+		</script>
+	</body>
+</html>

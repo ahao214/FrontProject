@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//集合：表示没有重复值的有序列表
+			let set = new Set();
+			console.log(set);
+
+			//添加元素
+			set.add(2);
+			set.add('4');
+			set.add([1, 23, 34]);
+
+			//删除
+			set.delete(2);
+			//校验某个值是否在set中
+			console.log(set.has('4'));
+			console.log(set.size);
+			console.log(set);
+
+			// set.forEach((val,key)=>{
+			// 	console.log(val);
+			// 	console.log(key);
+			// })
+
+			//将集合转换为数组
+			let settwo = new Set([1, 2, 3, 4, 5, 6, 7]);
+			let arr = [...settwo];
+			console.log(settwo);
+			console.log(arr);
+
+			let map = new Map();
+			map.set('id', '1');
+			map.set('name', 'buer');
+			map.set('age', 20);
+			console.log(map);
+			console.log(map.get('id'));
+			console.log(map.get('name'));
+			console.log(map.get('age'));
+
+			console.log(map.has('namdde'));
+			map.delete('name');
+			map.clear();
+
+			let m = new Map([
+				['a', 1],
+				['b', 2]
+			]);
+			console.log(m);
+		</script>
+
+	</body>
+</html>

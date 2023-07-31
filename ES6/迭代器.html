@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script>
+			//使用迭代
+			const item = ['one', 'two', 'three'];
+			//创建新的迭代器		
+			const it = item[Symbol.iterator]();
+
+			console.log(it.next());
+			console.log(it.next());
+			console.log(it.next());
+			console.log(it.next());
+		</script>
+	</body>
+</html>

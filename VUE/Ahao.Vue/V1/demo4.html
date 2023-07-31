@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+
+			<div>
+				<cool-ahao></cool-ahao>
+			</div>
+
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+		
+		<template id="coolAhao">
+			<h1>{{coolhello}}</h1>
+		</template>
+		
+		<script>
+			var coolAhao = {
+				name: "coolAhao",
+				data() {
+					return {
+						coolhello: "hello cool"
+					}
+				},
+				template:"#coolAhao"
+			}
+			var app = new Vue({
+				el: "#app",
+				data: {},
+				components: {
+					coolAhao:coolAhao,
+				}
+
+			})
+		</script>
+
+	</body>
+</html>

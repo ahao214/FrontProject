@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<input type="checkbox" id="jack" value="jack" v-model="checkedNames">
+		<label for="jack">Jack</label>
+
+		<input type="checkbox" id="tom" value="tom" v-model="checkedNames">
+		<label for="tom">Tom</label>
+
+		<input type="checkbox" id="chery" value="chery" v-model="checkedNames">
+		<label for="chery">Chery</label>
+		<br>
+		<span>Checked names:{{checkedNames}}</span>
+		
+		<div id="example-5">
+			<select v-model="selected" multiple style="width: 3.125rem;">
+				<option disabled value="">请选择</option>
+				<option>A</option>
+				<option>B</option>
+				<option>C</option>
+			</select>
+			<span>Selected:{{selected}}</span>
+		</div>
+
+		<script>
+			new Vue({
+				el: '#example-5',
+				data: {
+					selected: ''
+				}
+			})
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//generator 函数 可以通过yield关键字，将函数挂起
+			//和普通函数的区别
+			//1.function后面 函数名之前有个*
+			//2.只能在函数内部使用yield表达式，让函数挂起
+			
+			// function* func(){
+			// 	console.log('start');
+			// 	yield 2;
+			// 	console.log('two');
+			// 	yield 3;
+			// 	console.log('end');
+			// }
+			
+			// let or = func();
+			// // console.log(or);
+			
+			// console.log(or.next());
+			// console.log(or.next());
+			// console.log(or.next());
+			
+			function* add(){
+				console.log('start');
+				let x = yield '2';
+				console.log('one:' + x);
+				let y = yield '3';
+				console.log('two:' +y);
+				return x + y;
+			}
+			
+			const fsn = add ();
+			console.log(fsn.next());
+			console.log(fsn.next(20));
+			console.log(fsn.next(30));
+			
+		</script>
+	</body>
+</html>

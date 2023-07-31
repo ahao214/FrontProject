@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>扩展的对象的功能</title>
+	</head>
+	<body>
+	<script>
+		//ES6直接写入变量和函数 作为对象的属性和方法
+		const name = '小马',age = 20;
+		const person ={
+			name,	//等价于name:name
+			age,
+			sayName(){
+				console.log(this.name);
+				console.log(this.age);
+			}
+		}
+		
+		person.sayName();
+		
+		
+		function fn(x,y){
+			return {x,y};
+		}
+		
+		console.log(fn(10,20));
+		
+		let car = {
+			wheel:4,
+			set(newVal){
+				if(newVal < this.wheel){
+					throw new Error('轮子太少');
+				}
+				this.wheel = newVal;
+			},
+			get(){
+				return this.wheel;
+			}
+			
+		}
+		console.log(car.get());
+		car.set(13);
+		console.log(car.get());
+		
+		
+		// const obj ={};
+		// obj.isShow = true;
+		// const aname = 'a';
+		// obj[aname +'bc'] = 123;
+		// console.log(obj);
+		
+		// obj['f' + 'bc'] = function(){
+		// 	console.log(this);
+		// }
+		// console.log(obj);
+		
+		const nname ='a';
+		const obj ={
+			isShow :true,
+			[nname +'bc'] : 123,
+			['f'+nname](){
+				console.log(this);
+			}
+		}
+		console.log(obj);
+		
+		//is() ====
+		//比较两个值是否严格相等
+		console.log(NaN === NaN);
+		console.log(Object.is(NaN,NaN));
+		
+		//assign()
+		//返回合并之后的新对象		
+		let o = Object.assign({},{a:1},{b:2});
+		console.log(o);
+		
+	</script>
+
+	</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="JS/axios.js"></script>
+	</head>
+	<body>
+		晚上好
+		<script>			
+			axios.get("https://localhost:44328/Test/GetHello?userName=ace").then(function(data) {
+				console.log(data);
+			});
+		</script>
+	</body>
+</html>

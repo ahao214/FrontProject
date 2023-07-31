@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<ul>
+				<li v-for="(item,key) in list" :key="key">
+					{{item}}
+				</li>
+			</ul>
+			<button @click="addList">
+				push
+			</button>
+		</div>
+	</body>
+	
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+						list:["a"],
+		
+				},
+				methods: {
+					addList(){
+						this.list.push("b")
+					}
+				},
+				beforeCreate() {
+					console.log("我在创建之前被调用")
+				},
+				created() {
+					console.log("我在创建之后被调用")
+				},
+				beforeMount() {
+					console.log("我在挂载之前被调用")
+				},
+				mounted() {
+					console.log("我在挂载之后被调用")
+				},
+				beforeUpdate() {
+					console.log("我在更新之前被调用")
+				},
+				updated() {
+					console.log("我在更新之后被调用")
+				},
+				// beforeDestroy() {
+				// 	console.log("我在被销毁之前被调用")
+				// },
+				// destroyed() {
+				// 	console.log("我在被销毁之后被调用")
+				// }
+				
+			})
+		</script>
+</html>

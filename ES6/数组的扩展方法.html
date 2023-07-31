@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//数组的方法 from() of() 
+			//from() 将伪数组转换为真数组
+			// function add(){
+			// 	console.log(arguments);
+			// 	let arr = Array.from(arguments);
+			// 	console.log(arr);
+			// }
+			// add(1,2,3);
+
+			// //from() 还可以接收第二个参数，用来对每个元素进行处理
+
+
+			// //of() 将一组值 转换为数组
+			// console.log(Array.of(2,3,4,45,'456',[8,9,5],{id:1}));
+
+			// //copywithin()
+			// console.log([1,2,3,4,5,6,7,8,9].copyWithin(0,2));
+
+			// //find() 方法找出第一个符合条件的数字成员
+			// let num = [1,2,-98,9,8,5,6].find(n=>n <0);
+			// console.log(num);
+
+			// let nidx = [1,2,4,5,67,8].findIndex(n=>n > 56);
+			// console.log(nidx);
+
+			//遍历数组
+			//entries() keys() values() 返回一个遍历器 可以使用for...of循环进行遍历
+			//['a','b'].keys();
+
+			for (let index of ['a', 'b'].keys()) {
+				console.log(index);
+			}
+			for(let ele of ['a','b'].values()){
+				console.log(ele);
+			}
+			for(let [index,ele] of ['a','b'].entries()){
+				console.log(index);
+				console.log(ele);
+			}
+			
+			let letter = ['a','b','c'];
+			let it = letter.entries();
+			console.log(it.next().value);
+			console.log(it.next().value);
+			console.log(it.next().value);
+			console.log(it.next().value);
+			
+			console.log([1,2, 3].includes(2));
+			console.log([1,2,3].includes('s'));
+			
+		</script>
+
+	</body>
+</html>

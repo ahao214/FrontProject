@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{fullname}}
+			<br />
+			<button @click="change">添加属性</button>
+			<br />
+			<button @click="testwatch">监听器</button>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					header: [""],
+					firstname: "liu",
+					lastname: "penghao",
+					watcher: "123"
+				},
+				methods: {
+					change() {
+
+					},
+					testwatch() {
+						this.watcher = "456"
+					}
+				},
+				computed: {
+					fullname() {
+						return this.firstname + this.lastname
+					}
+				},
+				watch: {
+					watcher: function(newValue, oldValue) {
+						console.log(oldValue)
+						console.log(newValue)
+					},
+					handle: function(newValue, oldValue) {
+						console.log(newValue)
+						console.log(oldValue)
+					}
+				},
+				created: {
+
+				}
+			})
+		</script>
+	</body>
+</html>
