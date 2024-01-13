@@ -1,6 +1,6 @@
 <template>
 
-<div class="container">
+ <div class="container">
         <template v-for="product in ProductList.Products" :key="product.id">
             <div class="product">
                 <a @click="detail(product.id)">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </template>
-    </div>
+    </div> 
 
 </template>
 
@@ -52,7 +52,7 @@ const  getMinPrice=function GetPriceText(product){
 </script>
 
 <style scoped>
-.container{
+.container .product{
     width:100%;
 }
 
