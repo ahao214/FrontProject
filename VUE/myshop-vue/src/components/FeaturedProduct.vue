@@ -24,15 +24,19 @@
 <script setup>
     import useProductList from "@/stores/useProductList";
     import { onMounted } from "vue";
+    import {useRouter} from "vue-router";
 
     const ProductList = useProductList();
+    const router = useRouter();
 
     onMounted(async()=>{        
         await ProductList.getProductsByFeatured();
     });
 
     function detail(id){
-
+        router.push({
+            path:`/detail/${id}`
+        })
     }
 
 </script>
