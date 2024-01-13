@@ -19,6 +19,13 @@
                 </div>
             </div>
         </template>
+
+        <!--搜索结果分页展示-->
+        <el-row :gutter="20">
+            <el-col :span="8" :offset="10">
+                <el-pagination background layout="prev,pager,next" :page-count="ProductList.Pages" :current-page="ProductList.CurrentPage" :default-page-size="2" hide-on-single-page @current-change="selectPagination"/>
+            </el-col>
+        </el-row>
     </div> 
 
 </template>
@@ -38,6 +45,10 @@ onMounted(async()=>{
     if(ProductList.Products.length  == 0 ){
         await ProductList.getProductsByCategory(route.params.url);
     }
+
+    if(route.params.searchText != undefined && route.params.page != undefined ){
+        await ProductList.getProductBySearch(route.params.searchText, route.params.page);
+    }
 })
 
 function detail(id){
@@ -56,6 +67,13 @@ const  getMinPrice=function GetPriceText(product){
     var prices = variants.map(variant=>variant.price);
     var minPrice = Math.min(...prices);
     return "最低￥"+minPrice+"起";
+}
+
+const selectPagination = async function(page){
+    await ProductList.getProductBySearch(ProductList.LastSearchText, page)
+    router.push({
+        path:`/product/search/${ProductList.LastSearchText}/${page}`
+    })
 }
 
 </script>

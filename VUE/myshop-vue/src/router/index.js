@@ -14,7 +14,7 @@ const router = createRouter({
         component: () =>
             import ("@/components/ProductList.vue")
     }, {
-        path: "/product/search/:searchText",
+        path: "/product/search/:searchText/:page",
         component: () =>
             import ("@/components/ProductList.vue")
     }, {

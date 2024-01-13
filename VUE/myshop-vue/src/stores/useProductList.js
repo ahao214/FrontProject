@@ -6,7 +6,10 @@ const BASE_URL = "http://localhost:5194/";
 const useProductList = defineStore("productList", {
     state: () => ({
         Products: [],
-        ProductTypes: []
+        ProductTypes: [],
+        Pages: 1,
+        CurrentPage: 1,
+        LastSearchText: ""
     }),
     getters: {
         GetProductId(state) {
@@ -50,9 +53,17 @@ const useProductList = defineStore("productList", {
             const response = await axios.get(BASE_URL + "api/Product/GetProductSearchSuggestions/" + searchText);
             return response.data;
         },
-        async getProductBySearch(searchText) {
-            await axios.get(BASE_URL + "api/Product/GetProductBySearch/" + searchText).then(res => {
-                this.Products = res.data.data;
+        async getProductBySearch(searchText, page) {
+
+            this.LastSearchText = searchText;
+
+            await axios.get(BASE_URL + "api/Product/GetProductBySearch/" + searchText + "/" + page).then(res => {
+                const result = res.data.data;
+                if (result != null && result.products.length != 0) {
+                    this.Pages = result.pages;
+                    this.CurrentPage = result.currentPage;
+                    this.Products = result.products;
+                }
             });
         }
     }

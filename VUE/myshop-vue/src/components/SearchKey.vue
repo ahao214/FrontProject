@@ -44,10 +44,10 @@ const querySearch = async (queryString,cb)=>{
 }
 
 async function handleSelect(selectItem){
-    await ProductList.getProductBySearch(selectItem.value);
+    await ProductList.getProductBySearch(selectItem.value,1);
 
     router.push({
-        path:`/product/search/${selectItem.value}`
+        path:`/product/search/${selectItem.value}/1`
     });
 }
 

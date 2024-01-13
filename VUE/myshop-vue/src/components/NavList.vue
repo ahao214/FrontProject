@@ -32,6 +32,10 @@ onMounted(async () =>{
 });
 
 async function FindProductByCategory(url){
+    ProductList.LastSearchText = "";
+    ProductList.Pages = 0;
+    ProductList.CurrentPage = 0;
+    
     if(url !== "feature"){
         await ProductList.getProductsByCategory(url);
     }
