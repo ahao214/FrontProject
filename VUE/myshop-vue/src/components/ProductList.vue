@@ -27,11 +27,12 @@
 
 import useProductList from "@/stores/useProductList"
 import { onMounted } from "vue"
-import { useRouter } from "vue-router";
+import { useRoute,useRouter } from "vue-router";
 
 const ProductList = useProductList();
 
-const route = useRouter();
+const route = useRoute();
+const router = useRouter();
 
 onMounted(async()=>{
     if(ProductList.Products.length  == 0 ){
@@ -40,7 +41,9 @@ onMounted(async()=>{
 })
 
 function detail(id){
-
+    router.push({
+        path:`/detail/${id}`
+    })
 }
 
 const  getMinPrice=function GetPriceText(product){

@@ -6,10 +6,14 @@ const BASE_URL = "http://localhost:5194/";
 const useProductList = defineStore("productList", {
     state: () => ({
         Products: [],
-        ProductType: []
+        ProductTypes: []
     }),
     getters: {
-
+        GetProductId(state) {
+            return productId => {
+                return state.Products.find(item => item.id === productId);
+            }
+        }
     },
     actions: {
         async getAllProduct() {
@@ -26,6 +30,18 @@ const useProductList = defineStore("productList", {
         },
         async getProductsByFeatured() {
             await axios.get(BASE_URL + "api/Product/GetFeaturedProducts").then(res => {
+                console.log(res.data.data);
+                this.Products = res.data.data;
+            });
+        },
+        async getProductTypeByProductId(typeId) {
+            await axios.get(BASE_URL + "api/ProductType/GetProductTypeByProductId/" + typeId).then(res => {
+                console.log(res.data.data);
+                this.ProductTypes = res.data.data;
+            });
+        },
+        async getProductById(id) {
+            await axios.get(BASE_URL + "api/Product/GetProductById/" + id).then(res => {
                 console.log(res.data.data);
                 this.Products = res.data.data;
             });
