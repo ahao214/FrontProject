@@ -2,7 +2,7 @@
     <h1 class="title">今日热销榜</h1>
     <div class="container">
         <template v-for="product in ProductList.Products" :key="product.id">
-            <div>
+            <div class="product">
                 <a @click="detail(product.id)">
                     <img :src="product.imageUrl"/>
                 </a>
