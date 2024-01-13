@@ -45,6 +45,15 @@ const useProductList = defineStore("productList", {
                 console.log(res.data.data);
                 this.Products = res.data.data;
             });
+        },
+        async getProductSearchSuggestions(searchText) {
+            const response = await axios.get(BASE_URL + "api/Product/GetProductSearchSuggestions/" + searchText);
+            return response.data;
+        },
+        async getProductBySearch(searchText) {
+            await axios.get(BASE_URL + "api/Product/GetProductBySearch/" + searchText).then(res => {
+                this.Products = res.data.data;
+            });
         }
     }
 });

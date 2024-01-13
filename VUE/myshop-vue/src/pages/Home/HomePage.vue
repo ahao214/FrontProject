@@ -10,6 +10,7 @@
                     </el-col>
                     <el-col :span="12">
                         <!--搜索框-->
+                        <SearchKey/>
                     </el-col>
                     <el-col :span="2">
                         <!--用户登录-->
@@ -31,9 +32,8 @@
 <script setup>
 
 import LogoButton from "@/components/LogoButton.vue"
-
 import NavList from "@/components/NavList.vue"
-
+import SearchKey from "@/components/SearchKey.vue"
 
 </script>
 
