@@ -23,6 +23,12 @@ const useProductList = defineStore("productList", {
                 console.log(res.data.data);
                 this.Products = res.data.data;
             });
+        },
+        async getProductsByFeatured() {
+            await axios.get(BASE_URL + "api/Product/GetFeaturedProducts").then(res => {
+                console.log(res.data.data);
+                this.Products = res.data.data;
+            });
         }
     }
 });

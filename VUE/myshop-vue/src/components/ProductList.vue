@@ -27,10 +27,16 @@
 
 import useProductList from "@/stores/useProductList"
 import { onMounted } from "vue"
+import { useRouter } from "vue-router";
 
 const ProductList = useProductList();
+
+const route = useRouter();
+
 onMounted(async()=>{
-    await ProductList.getAllProduct();
+    if(ProductList.Products.length  == 0 ){
+        await ProductList.getProductsByCategory(route.params.url);
+    }
 })
 
 function detail(id){

@@ -25,6 +25,8 @@ import { useRouter } from "vue-router";
 const Categories = useCategory();
 const ProductList = useProductList();
 
+const router = useRouter();
+
 onMounted(async () =>{
     await Categories.getCategories();
 });
@@ -33,6 +35,10 @@ async function FindProductByCategory(url){
     if(url !== "feature"){
         await ProductList.getProductsByCategory(url);
     }
+
+    router.push({
+        path:`/product/${url}`
+    })
 }
 
 </script>
