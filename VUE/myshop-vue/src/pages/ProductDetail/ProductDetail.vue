@@ -21,7 +21,7 @@
                 </h6>
             </template>
             <h4 class="price">
-                到手价:￥{{ GetSelectedProductVariant().Price }}
+                到手价:￥{{ GetSelectedProductVariant().price }}
             </h4>
         </template>
         <el-button color="#626aef" :icon="ShoppingCart" @click="AddToCart">加入购物车</el-button>
