@@ -24,6 +24,7 @@
                 到手价:￥{{ GetSelectedProductVariant().Price }}
             </h4>
         </template>
+        <el-button color="#626aef" :icon="ShoppingCart" @click="AddToCart">加入购物车</el-button>
     </div>
 
 </div>
@@ -34,8 +35,10 @@
 <script setup>
 
 import useProductList from "@/stores/useProductList";
-import { onMounted,ref } from "vue";
+import useCart from "@/stores/useCart";
+import { onMounted,ref,reactive } from "vue";
 import {useRoute} from "vue-router";
+import { ShoppingCart } from '@element-plus/icons-vue'
 
 const currentTypeId = ref("e84893a3-cad7-4ef3-8f7d-58e090c7f128");  // 默认当前类型的套餐
 
@@ -43,6 +46,7 @@ const ProductList = useProductList();
 const route = useRoute();
 const product = ref({});
 const productTypes = ref([]);
+const Cart = useCart();
 
 onMounted(async () =>{
     if(ProductList.Products.length === 0){
@@ -63,11 +67,22 @@ onMounted(async () =>{
     }
 });
 
-function GetSelectedProductVariant(){
-    if(product.value.variants!=undefined){
-        var variant = product.value.variants.find(x=>x.productTypeId == currentTypeId.value);
+function GetSelectedProductVariant() {
+    if (product.value.variants != undefined) {
+        var variant = product.value.variants.find(v => v.productTypeId == currentTypeId.value)
         return variant;
     }
+}
+
+async function AddToCart() {
+    var variant = GetSelectedProductVariant();
+    var cartItem = reactive({
+        productId: variant.productId,
+        productTypeId: variant.productTypeId,
+        quantity: 1
+    })
+
+    await Cart.AddToCart(cartItem);
 }
 
 </script>
