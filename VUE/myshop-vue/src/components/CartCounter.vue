@@ -14,6 +14,7 @@ import useCart from '@/stores/useCart';
 import { computed, onMounted } from 'vue';
 import { ShoppingCartFull, ShoppingTrolley } from "@element-plus/icons-vue"
 
+
 import { useRouter } from 'vue-router';
 
 const Cart = useCart();
@@ -29,7 +30,9 @@ const CartItemCount = computed(()=>{
 })
 
 function ToCartPage(){
-
+    router.push({
+        path:'/cart'
+    })
 }
 
 
