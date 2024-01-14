@@ -1,6 +1,6 @@
 <template>
 <div class="media-cart">
-    <el-button color="#626aef" :icon="CartItemCount <= 0 ? ShoppingTrolley : ShoppingCartFull" @click="ToCartPage">
+    <el-button color="#626aef" :icon="CartItemCount <= 0 ? ShoppingTrolley : ShoppingCartFull" @click="ToCartPage" size="large">
         {{  CartItemCount }}
     </el-button>
 </div>

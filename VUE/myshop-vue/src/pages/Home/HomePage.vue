@@ -17,6 +17,7 @@
                     </el-col>
                     <el-col :span="2">
                         <!--购物车-->
+                        
                     </el-col>
                 </el-row>
             </el-header>
@@ -34,7 +35,7 @@
 import LogoButton from "@/components/LogoButton.vue"
 import NavList from "@/components/NavList.vue"
 import SearchKey from "@/components/SearchKey.vue"
-
+//import CartCount from "@/components/CartCount.vue"
 </script>
 
 <style scoped>
