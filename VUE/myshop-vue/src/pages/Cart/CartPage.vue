@@ -100,6 +100,7 @@ async function handleChange(product) {
     await Cart.updateQuantity(product);
 }
 
+// 移除购物车中的商品
 async function removeProductFromCart(product, index) {
     await Cart.RemoveProduct(product, index);
     CartProducts.value.splice(index, 1);

@@ -39,18 +39,11 @@ const useCart = defineStore("Cart", {
             localStorage.setItem("cart", JSON.stringify(this.Cart));
 
         },
-        // async RemoveProduct(product, index) {
-        //     const state = useAuthenticationState().state;
-
-        //     if (state === true) {
-        //         this.Cart.splice(index, 1);
-        //         await axios.delete(BASE_URL + 'api/Cart/RemoveCartItem/' + product.ProductId + '/' + product.ProductTypeId)
-        //     } else {
-        //         this.Cart.splice(index, 1);
-        //         localStorage.setItem("cart", JSON.stringify(this.Cart));
-        //     }
-        // },
+        async RemoveProduct(product, index) {
+            this.Cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(this.Cart));
+        },
     }
-})
+});
 
-export default useCart
+export default useCart;
