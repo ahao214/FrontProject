@@ -91,6 +91,11 @@ function detail(id){
     })
 }
 
+function payment(){
+    alert("payment");
+}
+
+// 更新购物车商品数量
 async function handleChange(product) {
     await Cart.updateQuantity(product);
 }
