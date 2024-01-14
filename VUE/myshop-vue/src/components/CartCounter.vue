@@ -1,0 +1,41 @@
+<template>
+<div class="media-cart">
+    <el-button color="#626aef" :icon="CartItemCount <= 0 ? ShoppingTrolley : ShoppingCartFull" @click="ToCartPage">
+        {{  CartItemCount }}
+    </el-button>
+</div>
+
+
+</template>
+
+<script setup>
+
+import useCart from '@/stores/useCart';
+import { computed, onMounted } from 'vue';
+import { ShoppingCartFull, ShoppingTrolley } from "@element-plus/icons-vue"
+
+import { useRouter } from 'vue-router';
+
+const Cart = useCart();
+const router = useRouter();
+
+onMounted(()=>{
+    const localCart = localStorage.getItem("cart");
+    Cart.Cart = localCart ? JSON.parse(localCart) : [];
+})
+
+const CartItemCount = computed(()=>{
+    return Cart.GetCartItemCount
+})
+
+function ToCartPage(){
+
+}
+
+
+</script>
+<style scoped>
+.media-cart{
+    margin:15px;
+}
+</style>
