@@ -1,4 +1,3 @@
-import useAuthenticationState from "@/hook/auth/useAuthenticationState";
 import axios from "axios";
 import { defineStore } from "pinia";
 
