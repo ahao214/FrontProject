@@ -44,10 +44,8 @@ const useProductList = defineStore("productList", {
             });
         },
         async getProductById(id) {
-            await axios.get(BASE_URL + "api/Product/GetProductById/" + id).then(res => {
-                console.log(res.data.data);
-                this.Products = res.data.data;
-            });
+            const product = await axios.get(BASE_URL + "api/Product/GetProductById/" + id);
+            return product.data.data;
         },
         async getProductSearchSuggestions(searchText) {
             const response = await axios.get(BASE_URL + "api/Product/GetProductSearchSuggestions/" + searchText);
@@ -67,9 +65,9 @@ const useProductList = defineStore("productList", {
             });
         },
         async getProductVariant(id, typeid) {
-            const variant = await axios.get(BASE_URL + '/aip/ProductVariant/GetVariantByProduct/' + id + '/' + typeid);
+            const variant = await axios.get(BASE_URL + 'api/ProductVariant/GetVariantByProduct/' + id + '/' + typeid)
             return variant.data.data;
-        }
+        },
     }
 });
 
