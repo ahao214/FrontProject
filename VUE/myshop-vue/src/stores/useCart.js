@@ -24,7 +24,8 @@ const useCart = defineStore("Cart", {
                 sameItem.quantity += cartItem.quantity;
             }
             localStorage.setItem("cart", JSON.stringify(this.Cart));
-        },
+        }
+
     }
 })
 

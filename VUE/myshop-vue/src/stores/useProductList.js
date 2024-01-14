@@ -65,6 +65,10 @@ const useProductList = defineStore("productList", {
                     this.Products = result.products;
                 }
             });
+        },
+        async getProductVariant(id, typeid) {
+            const variant = await axios.get(BASE_URL + '/aip/ProductVariant/GetVariantByProduct/' + id + '/' + typeid);
+            return variant.data.data;
         }
     }
 });
