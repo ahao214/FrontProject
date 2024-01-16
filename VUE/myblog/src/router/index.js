@@ -20,4 +20,12 @@ const router = createRouter({
     }]
 })
 
+// 配置路由导航守卫钩子
+router.beforeEach((to,from)=>{
+    const token = localStorage.getItem("jwtToken");
+    if(!token && to.path !== "/login"){
+        return "/login";
+    }
+});
+
 export default router
