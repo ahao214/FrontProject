@@ -1,6 +1,8 @@
 <template>
 
-    <div></div>
+    <div class="detail">
+        <h2>article</h2>
+    </div>
    
    </template>
    
