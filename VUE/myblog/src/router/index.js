@@ -12,6 +12,9 @@ const router = createRouter({
         path:"/article/:articleId",
         component:()=>import("@/views/Detail/DetailPage.vue")
     },{
+        path:"/write",
+        component:()=>import("@/views/Writer/WriterPage.vue")
+    },{
         path:"/",
         redirect:"/home"
     },{
