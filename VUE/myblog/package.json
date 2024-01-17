@@ -10,6 +10,7 @@
     "axios": "^1.6.5",
     "core-js": "^3.8.3",
     "jwt-decode": "^4.0.0",
+    "md-editor-v3": "^4.10.0",
     "pinia": "^2.1.7",
     "vue": "^3.2.13",
     "vue-router": "^4.2.5"

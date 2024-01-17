@@ -11,8 +11,7 @@ const useWriter = defineStore("Writer", {
     }),
     actions: {
         CreateArticle(article) {
-            this.writer = article
-
+            this.writer = article;
             //发送请求创建文章
             axios.post('http://localhost:5055/api/Article/CreateArticle/Create', {
                 title: article.title,
@@ -26,10 +25,9 @@ const useWriter = defineStore("Writer", {
                 } else if (res.data.code == 500) {
                     alert(res.data.message)
                 }
-            })
-
+            });
         }
     }
-})
+});
 
-export default useWriter
+export default useWriter;
