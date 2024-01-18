@@ -37,6 +37,10 @@ const router = createRouter({
         path: "/profile",
         component: () =>
             import ("@/pages/Profile/ProfilePage.vue")
+    },
+    {
+        path:"/payment-success",
+        component:()=>import("@/pages/PaymentSuccess/PaymentSuccess.vue")
     }]
 
 })
