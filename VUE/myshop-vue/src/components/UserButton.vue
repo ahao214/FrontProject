@@ -9,6 +9,27 @@
             <ArrowDown/>
         </el-icon>
     </el-button>
+    
+    <template #dropdown>
+            <el-dropdown-menu>
+                <template v-if="isAuth.state === false">
+                    <el-dropdown-item @click="ToLogin">登录</el-dropdown-item>
+                    <el-dropdown-item @click="ToRegister">注册</el-dropdown-item>
+                </template>
+
+                <template v-if="isAuth.state === true">
+                    <el-dropdown-item @click="ToProfile">用户中心</el-dropdown-item>
+                    <el-dropdown-item @click="ToOrder">订单</el-dropdown-item>
+
+                    <template v-if="userObj.userRole === 'Admin'">
+                        <el-dropdown-item>管理面板</el-dropdown-item>
+                    </template>
+
+                    <el-dropdown-item @click="Logout">退出账号</el-dropdown-item>
+                </template>
+
+            </el-dropdown-menu>
+        </template>
  </el-dropdown>
 
 </template>
@@ -56,5 +77,7 @@ async function Logout(){
 
 
 <style scoped>
-
+.media-user {
+    margin: 15px;
+}
 </style>
