@@ -1,0 +1,22 @@
+import axios from "axios";
+
+export default function useAuthenticationState () {
+    var stat = false;
+    const token = localStorage.getItem("authToken");
+    if(token !== undefined && token !== null) {
+        try{
+            axios.interceptors.request.use(config=>{
+                config.headers.Authorization=`Bearer ${token}`;
+                
+                return config;
+            })
+        }catch(error){
+            localStorage.removeItem("authToken");
+            state = false;
+        }
+    }
+
+    return {
+        state
+    }
+}
