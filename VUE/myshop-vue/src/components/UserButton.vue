@@ -39,12 +39,14 @@ import { ArrowDown,UserFilled} from "@element-plus/icons-vue";
 import useAuthenticationState from "@/hook/auth/useAuthenticationState";
 import { useRouter } from "vue-router";
 import useUser from '@/stores/useUser'
+import useCart from '@/stores/useCart'
 import { onMounted,ref,reactive } from "vue";
 
 
 const isAuth = ref(useAuthenticationState())
 const router = useRouter();
 const User = useUser();
+const Cart = useCart();
 const userObj = reactive(User.user);
 
 onMounted(()=>{
@@ -67,6 +69,8 @@ function ToRegister(){
 
 async function Logout(){
     await User.logout();
+    Cart.Cart=[];
+    Cart.CartProduct=[];
     router.push({
         path:"/login"
     });
