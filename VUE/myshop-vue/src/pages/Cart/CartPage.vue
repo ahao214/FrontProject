@@ -45,6 +45,7 @@
 <script setup>
 import useCart from "@/stores/useCart";
 import useProductList from "@/stores/useProductList";
+import usePayment from "@/stores/usePayment"
 import { onMounted,ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -52,6 +53,7 @@ const ProductList = useProductList();
 const router = useRouter();
 const Cart = useCart();
 const CartProducts = ref([]);
+const Payment = usePayment();
 
 onMounted(async()=>{
     Cart.CartProduct =[];
@@ -80,7 +82,6 @@ onMounted(async()=>{
         };
         // 5 拼接好数据后存入数组
         Cart.CartProduct.push(cartObj);
-
     }
     CartProducts.value = Cart.CartProduct;
 })
@@ -91,8 +92,8 @@ function detail(id){
     })
 }
 
-function payment(){
-    alert("payment");
+async function payment(){
+    await Payment.CreateCheckoutSession(CartProducts.value);
 }
 
 // 更新购物车商品数量
