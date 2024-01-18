@@ -83,7 +83,7 @@ const useUser = defineStore("User", {
                 name: register.userName,
                 code: register.code,
                 password: register.password
-            })
+            });
 
             return result.data.success;
         },
