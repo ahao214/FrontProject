@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default function useAuthenticationState () {
-    var stat = false;
+    var state = false;
     const token = localStorage.getItem("authToken");
     if(token !== undefined && token !== null) {
         try{

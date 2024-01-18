@@ -14,6 +14,7 @@
                     </el-col>
                     <el-col :span="2">
                         <!--用户登录-->
+                        <UserButton/>
                     </el-col>
                     <el-col :span="2">
                         <!--购物车-->
@@ -36,6 +37,8 @@ import LogoButton from "@/components/LogoButton.vue"
 import NavList from "@/components/NavList.vue"
 import SearchKey from "@/components/SearchKey.vue"
 import CartCount from "@/components/CartCounter.vue"
+import UserButton from "@/components/UserButton.vue"
+
 </script>
 
 <style scoped>
