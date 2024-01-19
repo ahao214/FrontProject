@@ -41,6 +41,12 @@ const router = createRouter({
     {
         path:"/payment-success",
         component:()=>import("@/pages/PaymentSuccess/PaymentSuccess.vue")
+    },{
+        path:"/order",
+        component:()=>import("@/pages/Order/OrderPage.vue")
+    },{
+        path:"/orderdetail",
+        component:()=>import("@/pages/OrderDetail/OrderDetail.vue")
     }]
 
 })
