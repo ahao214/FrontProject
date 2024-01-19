@@ -68,6 +68,10 @@ const useProductList = defineStore("productList", {
             const variant = await axios.get(BASE_URL + 'api/ProductVariant/GetVariantByProduct/' + id + '/' + typeid)
             return variant.data.data;
         },
+        async getTypeNameByTypeId(typeId) {
+            const result = await axios.get(BASE_URL + 'api/ProductType/GetTypeNameByTypeId/' + typeId);
+            return result.data.data;
+        }
     }
 });
 

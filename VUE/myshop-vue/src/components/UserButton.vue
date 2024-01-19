@@ -76,6 +76,11 @@ async function Logout(){
     });
 }
 
+function ToOrder(){
+    router.push({
+        path:"/order"
+    })
+}
 
 </script>
 
